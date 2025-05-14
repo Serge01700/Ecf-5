@@ -1,0 +1,18 @@
+{
+    "name": "nusery-man-frontend",
+    "version": "1.0.0",
+    "scripts": {
+      "dev": "encore dev --mode=development",
+      "watch": "encore dev --watch",
+      "build": "encore production --progress"
+    },
+    "dependencies": {
+      "vue": "^3.3.4"
+    },
+    "devDependencies": {
+      "@symfony/webpack-encore": "^4.0.0",
+      "vue-loader": "^17.0.0",
+      "@vue/compiler-sfc": "^3.3.4",
+      "@babel/plugin-proposal-class-properties": "^7.18.6"
+    }
+  }
