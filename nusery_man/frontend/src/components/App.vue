@@ -1,13 +1,17 @@
 <template>
-  <div>
+  <DashboardLayout>
+    <div>
     <h1>{{ message }}</h1>
   </div>
+  </DashboardLayout>
+
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import  DashboardLayout from '../layout/DashboardLayout.vue'
 
-const message = ref('Heheloo')
+const message = ref('Hoo')
 </script>
 
 <style>

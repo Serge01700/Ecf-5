@@ -4,6 +4,9 @@
       "js": [
         "/build/runtime.js",
         "/build/main.js"
+      ],
+      "css": [
+        "/build/main.css"
       ]
     }
   }
