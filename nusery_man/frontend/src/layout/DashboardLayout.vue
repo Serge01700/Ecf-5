@@ -5,37 +5,37 @@
         <nav class="menu">
           <router-link to="/" exact active-class="active">
             <div class="menu-item">
-              <img src="assets/img/icons8-home-100 (1).png" alt="Home">
+              <img src="/img/icons8-home-100 (1).png" alt="Home">
               <span>Home</span>
             </div>
           </router-link>
-          <router-link to="/espace-enfant" active-class="active">
+          <router-link to="/" active-class="active">
             <div class="menu-item">
-              <img src="assets/img/icons8-child-100.png" alt="Espace enfant">
+              <img src="/img/icons8-child-100.png" alt="">
               <span>Espace enfant</span>
             </div>
           </router-link>
-          <router-link to="/espace-parent" active-class="active">
+          <router-link to="/" active-class="active">
             <div class="menu-item">
-              <img src="" alt="Espace parent">
+              <img src="/img/icons8-parent-96.png" alt="Espace parent">
               <span>Espace parent</span>
             </div>
           </router-link>
-          <router-link to="/planning" active-class="active">
+          <router-link to="/" active-class="active">
             <div class="menu-item">
-              <img src="" alt="Planning">
+              <img src="/img/icons8-schedule-100.png" alt="Planning">
               <span>Planning</span>
             </div>
           </router-link>
-          <router-link to="/personnel" active-class="active">
+          <router-link to="/" active-class="active">
             <div class="menu-item">
-              <img src="" alt="Personnel">
+              <img src="/img/icons8-staff-100.png" alt="Personnel">
               <span>Personnel</span>
             </div>
           </router-link>
-          <router-link to="/parametre" active-class="active">
+          <router-link to="/" active-class="active">
             <div class="menu-item">
-              <img src="" alt="Paramètre">
+              <img src="/img/icons8-settings-100.png" alt="Paramètre">
               <span>Paramètre</span>
             </div>
           </router-link>
@@ -43,7 +43,7 @@
       </aside>
   
       <main class="main-container">
-        <router-view></router-view>
+        <router-view></router-view> 
       </main>
     </div>
   </template>
@@ -53,15 +53,24 @@
   </script>
   
   <style scoped>
+
+
+body{
+  margin: 0;
+  padding: 0;
+}
+  
   .app-layout {
     display: flex;
+    background-color: #202020;
+    width: 100vw;
     height: 100vh;
   }
   
   .sidebar {
-    background-color: #222; /* Couleur de fond de la sidebar */
+    height: 100vh;
     color: #eee;
-    width: 250px;
+    width: 200px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -80,8 +89,9 @@
   
   .menu-item {
     display: flex;
+    cursor: pointer;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
     text-decoration: none;
     color: #eee;
     transition: background-color 0.3s ease;
@@ -93,7 +103,7 @@
     width: 20px;
     height: 20px;
     margin-right: 10px;
-    filter: invert(1); /* Inverser la couleur pour que les icônes soient blanches */
+    filter: invert(1); 
   }
   
   .menu-item span {
@@ -107,7 +117,11 @@
   
   .main-container {
     flex-grow: 1;
-    background-color: #f4f4f4; /* Couleur de fond du conteneur principal (facultatif) */
-    padding: 20px; /* Ajout de padding pour le contenu principal */
+    background-color:#F5F5F5;
+    padding: 20px; 
+    margin-top: 1.5rem;
+    border: 1px solid #DBDBDB;
+    border-top-left-radius: 9px;
+    height: 95%;
   }
   </style>
