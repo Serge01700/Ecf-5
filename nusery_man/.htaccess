@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Serve existing files as-is
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+    
+    # Allow direct access to images
+    RewriteRule ^img/ - [L]
+    
+    # Route everything else to index.html
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+# Set proper MIME types
+<IfModule mod_mime.c>
+    AddType image/png .png
+    AddType image/jpeg .jpg .jpeg
+    AddType image/gif .gif
+</IfModule>

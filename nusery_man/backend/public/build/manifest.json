@@ -1,5 +1,14 @@
 {
-  "build/main.css": "/build/main.css",
-  "build/main.js": "/build/main.js",
-  "build/runtime.js": "/build/runtime.js"
+  "src/main.css": {
+    "file": "style.css",
+    "src": "src/main.css"
+  },
+  "src/main.js": {
+    "css": [
+      "style.css"
+    ],
+    "file": "app.js",
+    "isEntry": true,
+    "src": "src/main.js"
+  }
 }

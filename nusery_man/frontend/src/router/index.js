@@ -12,6 +12,16 @@ const routes = [
                 path: '',  
                 name: 'home',
                 component: HomeDashboard
+            },
+            {
+                path: '/parent',
+                name: 'parent',
+                component: () => import ('../view/ParentalSpace.vue')
+            },
+            {
+                path: '/settings',
+                name: 'settings',
+                component: () => import ('../view/Settings.vue')
             }
         ]
     }

@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-import StatsHome from './StatsHome.vue'
+import StatsHome from './StatsHome.vue';
 
 </script>
 

@@ -46,14 +46,14 @@ Encore
     .enableVersioning(Encore.isProduction())
 
     // configure Babel
-    // .configureBabel((config) => {
-    //     config.plugins.push('@babel/a-babel-plugin');
-    // })
+    .configureBabel((config) => {
+        config.plugins = [];
+    })
 
     // enables and configure @babel/preset-env polyfills
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
-        config.corejs = '3.38';
+        config.corejs = 3;  // Changé de '3.38' à 3
     })
 
     // enables Sass/SCSS support
@@ -71,6 +71,11 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
+
+    // enables Vue.js support
+    .enableVueLoader(() => {}, { 
+        runtimeCompilerBuild: false // Ajoute cette configuration
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();

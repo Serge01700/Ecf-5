@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Symfony + Vue</title>
-  <link rel="stylesheet" href="./build/main.css">
 </head>
 <body>
   <div id="vue-app"></div>
-
-  <!-- Ajout des scripts Webpack -->
-  <script src="./build/runtime.js"></script>
-  <script src="./build/main.js"></script>
+  <script type="module" src="http://localhost:3000/@vite/client"></script>
+  <script type="module" src="http://localhost:3000/src/main.js"></script>
 </body>
 </html>
