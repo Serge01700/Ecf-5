@@ -312,7 +312,7 @@ const nextWeek = () => {
 <style scoped>
 .parent-dashboard {
   min-height: 100vh;
-  background-color: #f8f9fa;
+  background-color: #f0f0f0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 

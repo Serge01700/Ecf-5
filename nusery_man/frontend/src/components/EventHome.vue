@@ -75,14 +75,15 @@ const onEventClick = (event) => {
   background-color: white;
  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   border-radius: 8px;
-  padding: 16px;
-  max-width: 320px;
+  max-height:300px;
+  padding: 22px;
+  max-width: 420px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .upcoming-events__title {
   margin: 0 0 16px 0;
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 500;
   color: #333;
 }
@@ -90,13 +91,14 @@ const onEventClick = (event) => {
 .upcoming-events__list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
 }
 
 .event-item {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 250px;
   cursor: pointer;
   transition: background-color 0.2s ease;
   padding: 4px;
@@ -125,7 +127,7 @@ const onEventClick = (event) => {
 
 .event-item__title {
   margin: 0 0 4px 0;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: #333;
   line-height: 1.3;
@@ -133,12 +135,12 @@ const onEventClick = (event) => {
 
 .event-item__date {
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   color: #666;
   line-height: 1.2;
 }
 
-/* Icônes SVG intégrées */
+
 .event-item__icon svg {
   width: 20px;
   height: 20px;
