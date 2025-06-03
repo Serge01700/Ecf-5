@@ -1,6 +1,5 @@
 <template>
   <div class="settings-page">
-    <!-- Background avec animations -->
     <div class="background-animation">
       <div class="floating-shape shape-1"></div>
       <div class="floating-shape shape-2"></div>
@@ -8,7 +7,6 @@
       <div class="floating-shape shape-4"></div>
     </div>
 
-    <!-- Header avec avatar -->
     <header class="settings-header">
       <div class="user-avatar-header">
         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -34,10 +32,9 @@
           </button>
         </nav>
       </aside>
-
-      <!-- Main Content -->
+  
       <main class="settings-main">
-        <!-- Compte Tab -->
+       
         <div v-if="activeTab === 'compte'" class="settings-content">
           <div class="content-header glass">
             <h1>Compte</h1>
@@ -56,7 +53,7 @@
             </div>
           </section>
 
-          <!-- Form Fields -->
+          
           <section class="form-section glass">
             <div class="form-row">
               <div class="form-group">

@@ -290,6 +290,7 @@ export default {
   background-color: white;
   border-radius: 8px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .meal-header {

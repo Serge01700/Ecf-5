@@ -1,17 +1,18 @@
 <template>
   <div class="home-dashboard">
-    
     <StatOverview />
-    <div class="flex">
-          <EventHome
-        :events="myEvents"
-        @event-click="handleEventClick"
+    <div class="layout">
+      <div class="content-left">
+        <EventHome
+          :events="myEvents"
+          @event-click="handleEventClick"
         />
+        <Messagerie class="messagerie-fullwidth" />
+      </div>
+      <div class="content-right">
         <MealComp class="mealcomp-fullwidth" />
+      </div>
     </div>
-    
-
-    
   </div>
 </template>
 
@@ -19,6 +20,7 @@
 import StatOverview from '../components/StatOverview.vue';
 import EventHome from '../components/EventHome.vue';
 import MealComp from '../components/MealComp.vue';
+import Messagerie  from '../components/Messagerie.vue';
 
 const myEvents = [
   { id: 1, type: 'reading', title: 'Mon événement', date: '25 juin' },
@@ -40,22 +42,32 @@ const myEvents = [
 </script>
 
 <style scoped>
-.flex {
+.layout {
   display: flex;
-  gap:15px;
-}
-
-.mealcomp-fullwidth {
+  gap: 15px;
   width: 100%;
-  /* margin-top: 1rem; */
-  height: 100%;
 }
 
+.content-left {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 420px; /* Ajuste cette valeur selon la largeur souhaitée */
+}
+
+.content-right {
+  flex: 1;
+}
+
+.mealcomp-fullwidth,
+.messagerie-fullwidth {
+  width: 100%;
+}
 
 .home-dashboard {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap:1.5rem;
+  gap: 1.5rem;
 }
 </style>
