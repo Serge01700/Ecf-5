@@ -229,9 +229,15 @@ const closeDeleteModal = () => {
 </script>
 
 <style scoped>
+
+:global(.main-container.no-padding) {
+  padding: 0 !important;
+}
+
+
 .settings-page {
   min-height: 100vh;
-  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  background: linear-gradient(135deg, #eff2ff 0%, #5d5d5d 100%);
   position: relative;
   overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -252,7 +258,7 @@ const closeDeleteModal = () => {
   position: absolute;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
-  animation: float 6s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite;
 }
 
 .shape-1 {
@@ -284,7 +290,7 @@ const closeDeleteModal = () => {
   height: 100px;
   top: 10%;
   right: 30%;
-  animation-delay: 1s;
+  animation-delay: 0.7s;
 }
 
 @keyframes float {
@@ -296,7 +302,7 @@ const closeDeleteModal = () => {
   }
 }
 
-/* Glassmorphism Effect */
+
 .glass {
   background: rgba(14, 10, 10, 0.15);
   backdrop-filter: blur(20px);
@@ -331,6 +337,7 @@ const closeDeleteModal = () => {
   width: 24px;
   height: 24px;
 }
+
 
 /* Main Container */
 .settings-container {
@@ -412,7 +419,7 @@ const closeDeleteModal = () => {
   margin: 0;
 }
 
-/* Profile Section */
+
 .profile-section {
   padding: 24px;
 }
@@ -451,7 +458,6 @@ const closeDeleteModal = () => {
   font-weight: 500;
 }
 
-/* Form Section */
 .form-section {
   padding: 24px;
 }
@@ -534,7 +540,7 @@ const closeDeleteModal = () => {
   font-weight: 500;
 }
 
-/* Danger Section */
+
 .danger-section {
   padding: 24px;
 }
@@ -612,7 +618,7 @@ const closeDeleteModal = () => {
   margin-top: 16px;
 }
 
-/* Theme Section */
+
 .theme-section {
   padding: 24px;
 }
@@ -656,7 +662,7 @@ const closeDeleteModal = () => {
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Modal */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -745,26 +751,5 @@ const closeDeleteModal = () => {
   }
 }
 
-/* Icons as pseudo-elements */
-.nav-item:before {
-  content: '';
-  width: 20px;
-  height: 20px;
-  background: currentColor;
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-}
 
-.nav-item:nth-child(1):before {
-  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
-}
-
-.nav-item:nth-child(2):before {
-  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E");
-}
-
-.nav-item:nth-child(3):before {
-  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8z'/%3E%3C/svg%3E");
-}
 </style>

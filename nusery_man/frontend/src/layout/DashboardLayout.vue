@@ -5,6 +5,7 @@
         <nav class="menu">
           <router-link to="/" active-class="active">
             <div class="menu-item">
+             <p>{{ homeIcon }} </p>
               <img :src="homeIcon" alt="Home">
               <span>Accueil</span>
             </div>
@@ -41,14 +42,14 @@
           </router-link>
         </nav>
       </aside>
-      <main class="main-container">
+      <main class="main-container" :class="{ 'no-padding': $route.name === 'settings' }">
         <router-view></router-view>
       </main>
     </div>
 </template>
 
 <script setup>
-import homeIcon from '@/assets/icons/icons8-home-100.png'
+import homeIcon from '@/assets/icons/icons8-home-100 (1).png'
 import childIcon from '@/assets/icons/icons8-child-100.png'
 import parentIcon from '@/assets/icons/icons8-parent-96.png'
 import scheduleIcon from '@/assets/icons/icons8-schedule-100.png'
@@ -121,6 +122,6 @@ import settingsIcon from '@/assets/icons/icons8-settings-100.png'
   flex: 1;
   padding: 2rem;
   background-color: #f5f6fa;
-  margin-left: 250px; /* Ajoute cette ligne - même largeur que la sidebar */
+  margin-left: 250px; 
 }
 </style>
