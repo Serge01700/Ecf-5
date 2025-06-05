@@ -5,6 +5,13 @@
 <div class="event">
     <EventHome />
 </div>
+<div class="presence">
+    <PresenceCalendar />
+</div>
+
+<div class="meal-today">
+    <Meal4Parent />
+</div>
 </div>
 
 
@@ -17,6 +24,8 @@
 <script setup>
 import ChildForm  from '../components/ChildForm.vue';
 import EventHome from '../components/EventHome.vue';
+import PresenceCalendar from '../components/PresenceCalendar.vue';
+import Meal4Parent from '../components/Meal4Parent.vue';
 
 </script>
 

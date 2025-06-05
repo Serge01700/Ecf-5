@@ -201,7 +201,7 @@ const showFilters = ref(false)
 const showAddChildModal = ref(false)
 const currentWeek = ref(20)
 
-// Données des enfants
+
 const children = ref([
   {
     id: 1,
@@ -245,7 +245,7 @@ const filteredChildren = computed(() => {
   })
 })
 
-// Méthodes
+
 const viewChild = (child) => {
   console.log('Voir enfant:', child)
   
@@ -619,7 +619,7 @@ const nextWeek = () => {
   height: 16px;
 }
 
-/* Modal */
+
 .modal-overlay {
   position: fixed;
   top: 0;

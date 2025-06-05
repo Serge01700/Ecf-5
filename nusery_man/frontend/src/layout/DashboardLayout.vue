@@ -5,7 +5,7 @@
         <nav class="menu">
           <router-link to="/" active-class="active">
             <div class="menu-item">
-             <p>{{ homeIcon }} </p>
+             
               <img :src="homeIcon" alt="Home">
               <span>Accueil</span>
             </div>

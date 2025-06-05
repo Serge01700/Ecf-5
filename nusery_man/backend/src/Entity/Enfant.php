@@ -1,42 +1,50 @@
 <?php
 
+// src/Entity/Child.php
 namespace App\Entity;
 
-use App\Repository\EnfantRepository;
-use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ChildRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Responsable;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity(repositoryClass: EnfantRepository::class)]
-class Enfant
+#[ORM\Entity(repositoryClass: ChildRepository::class)]
+class Child
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    #[ORM\Column(type: 'string', length: 100)]
+    #[Assert\NotBlank(message: 'Le prénom est obligatoire')]
+    #[Assert\Length(max: 100)]
+    private ?string $firstName = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Allergie = null;
+    #[ORM\Column(type: 'string', length: 100)]
+    #[Assert\NotBlank(message: 'Le nom est obligatoire')]
+    #[Assert\Length(max: 100)]
+    private ?string $lastName = null;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Responsable::class, inversedBy="enfants")
-     */
-    private $responsables;
+    #[ORM\Column(type: 'date')]
+    #[Assert\NotNull(message: 'La date de naissance est obligatoire')]
+    private ?\DateTimeInterface $birthDate = null;
 
-    /**
-     * @var Collection<int, Presence>
-     */
-    #[ORM\OneToMany(targetEntity: Presence::class, mappedBy: 'enfant')]
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTimeInterface $createdAt = null;
+
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTimeInterface $updatedAt = null;
+
+    #[ORM\OneToMany(mappedBy: 'child', targetEntity: Presence::class, orphanRemoval: true)]
     private Collection $presences;
 
     public function __construct()
     {
-        $this->responsables = new ArrayCollection();
         $this->presences = new ArrayCollection();
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
     public function getId(): ?int
@@ -44,54 +52,68 @@ class Enfant
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->name;
+        return $this->firstName;
     }
 
-    public function setName(string $name): static
+    public function setFirstName(string $firstName): self
     {
-        $this->name = $name;
-
+        $this->firstName = $firstName;
         return $this;
     }
 
-    public function getAllergie(): ?string
+    public function getLastName(): ?string
     {
-        return $this->Allergie;
+        return $this->lastName;
     }
 
-    public function setAllergie(string $Allergie): static
+    public function setLastName(string $lastName): self
     {
-        $this->Allergie = $Allergie;
-
+        $this->lastName = $lastName;
         return $this;
     }
 
-    /**
-     * @return Collection<int, Responsable>
-     */
-    public function getResponsables(): Collection
+    public function getFullName(): string
     {
-        return $this->responsables;
+        return $this->firstName . ' ' . $this->lastName;
     }
 
-    public function addResponsable(Responsable $responsable): self
+    public function getBirthDate(): ?\DateTimeInterface
     {
-        if (!$this->responsables->contains($responsable)) {
-            $this->responsables[] = $responsable;
-            $responsable->addEnfant($this);
-        }
+        return $this->birthDate;
+    }
 
+    public function setBirthDate(\DateTimeInterface $birthDate): self
+    {
+        $this->birthDate = $birthDate;
         return $this;
     }
 
-    public function removeResponsable(Responsable $responsable): self
+    public function getAge(): int
     {
-        if ($this->responsables->removeElement($responsable)) {
-            $responsable->removeEnfant($this);
-        }
+        return $this->birthDate ? $this->birthDate->diff(new \DateTime())->y : 0;
+    }
 
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
         return $this;
     }
 
@@ -103,22 +125,21 @@ class Enfant
         return $this->presences;
     }
 
-    public function addPresence(Presence $presence): static
+    public function addPresence(Presence $presence): self
     {
         if (!$this->presences->contains($presence)) {
-            $this->presences->add($presence);
-            $presence->setEnfant($this);
+            $this->presences[] = $presence;
+            $presence->setChild($this);
         }
 
         return $this;
     }
 
-    public function removePresence(Presence $presence): static
+    public function removePresence(Presence $presence): self
     {
         if ($this->presences->removeElement($presence)) {
-            // set the owning side to null (unless already changed)
-            if ($presence->getEnfant() === $this) {
-                $presence->setEnfant(null);
+            if ($presence->getChild() === $this) {
+                $presence->setChild(null);
             }
         }
 
