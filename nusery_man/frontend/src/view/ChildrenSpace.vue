@@ -187,7 +187,65 @@
         </form>
       </div>
     </div>
+
+
+
+    <section v-if="showModalSuivi" class="modale-suivis">
+    <h1>Suivi de l'enfant </h1>
+    <button @click="closeModalSuivi" id="close-modale">X</button>
+    <p>Fiche enfant</p>
+    <div class="grid-child">
+        <figure>
+            <img src="" alt="">
+            <figcaption>Lea</figcaption>
+        </figure>
+        <div class="child-info">
+            <h2>Nom</h2>
+            <p>Née le 2 juin </p>
+            <figure style="display:flex">
+                <img src="" alt="groupe">
+                <figcaption>Groupe petits</figcaption>
+            </figure>
+            <figure style="display:flex">
+                <img src="" alt="Allergies">
+                <figcaption>Allergies: arachides</figcaption>
+            </figure>
+            <figure style="display:flex">
+                <img src="../assets/icons/icons8-add-male-user-group-100.png" alt="sieste">
+                <figcaption>Deux siestes par jours</figcaption>
+            </figure>
+        </div>
+    </div>
+    <p>Repas:</p>
+    <p>Cantine de la crèche</p>
+    <div class="grid-child">
+        <section class="sante">
+            <h2>Suivis Santé</h2>
+            <figure style="display:flex">
+                <img src="" alt="Temperature">
+                <figcaption>Temperature: 36.8 ° C</figcaption>
+            </figure>
+        </section>
+        <section class="incident">
+            <h2>Incidents</h2>
+            <figure style="display:flex">
+                <img src="" alt="Incidents">
+                <figcaption>Aucun incidents</figcaption>
+            </figure>
+        </section>
+        <section class="responsable">
+            <h2>Responsables légaux</h2>
+            <p>Lea</p>
+        </section>
+    </div>
+    
+</section>
+
+    
   </div>
+
+
+
 </template>
 
 <script setup>
@@ -200,6 +258,8 @@ const scheduleSearch = ref('')
 const showFilters = ref(false)
 const showAddChildModal = ref(false)
 const currentWeek = ref(20)
+const showModalSuivi = ref(false)
+
 
 
 const children = ref([
@@ -247,6 +307,7 @@ const filteredChildren = computed(() => {
 
 
 const viewChild = (child) => {
+  showModalSuivi.value = true
   console.log('Voir enfant:', child)
   
 }
@@ -307,9 +368,44 @@ const previousWeek = () => {
 const nextWeek = () => {
   currentWeek.value++
 }
+
+const closeModalSuivi = () => {
+  showModalSuivi.value = false
+}
 </script>
 
 <style scoped>
+
+section.modale-suivis > div.grid-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.modale-suivis {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#close-modale {
+  position: absolute;
+  top: 10px;
+  cursor:pointer;
+  right: 10px;
+  background-color: rgb(227, 227, 227);
+  padding: 3px;
+  border:solid 1px rgb(165, 165, 165);
+  border-radius: 5px;
+
+}
+
+
+
 .parent-dashboard {
   min-height: 100vh;
   background-color: #f0f0f0;

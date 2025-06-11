@@ -1,6 +1,6 @@
 <template>
 <!-- MODALE SUIVI ENFANT -->
-<section class="modale-suivis">
+<section v-if="showModalSuivi" class="modale-suivis">
     <h1>Suivi de l'enfant </h1>
     <p>Fiche enfant</p>
     <div class="grid-child">
@@ -27,14 +27,27 @@
     </div>
     <p>Repas:</p>
     <p>Cantine de la crèche</p>
-    <section class="sante">
-        <h2>Suivis Santé</h2>
-        <figure style="display:flex">
-            <img src="" alt="Temperature">
-            <figcaption>Temperature: 36.8 ° C</figcaption>
-        </figure>
-    </section>
-
+    <div class="grid-child">
+        <section class="sante">
+            <h2>Suivis Santé</h2>
+            <figure style="display:flex">
+                <img src="" alt="Temperature">
+                <figcaption>Temperature: 36.8 ° C</figcaption>
+            </figure>
+        </section>
+        <section class="incident">
+            <h2>Incidents</h2>
+            <figure style="display:flex">
+                <img src="" alt="Incidents">
+                <figcaption>Aucun incidents</figcaption>
+            </figure>
+        </section>
+        <section class="responsable">
+            <h2>Responsables légaux</h2>
+            <p>Lea</p>
+        </section>
+    </div>
+    
 </section>
 
 </template>
@@ -44,8 +57,5 @@
 </script>
 
 <style scopped>
-section.modale-suivis > div.grid-child {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
+
 </style>

@@ -6,16 +6,17 @@
           <router-link to="/" active-class="active">
             <div class="menu-item">
              
-              <img :src="homeIcon" alt="Home">
+              <img src="/icons/icons8-home-100 (1).png" alt="Home">
               <span>Accueil</span>
             </div>
           </router-link>
           <router-link to="/child" active-class="active">
             <div class="menu-item">
-              <img :src="childIcon" alt="Children">
+              <img src="/icons/icons8-child-100.png" alt="Children">
               <span>Espace enfant</span>
             </div>
           </router-link>
+          
           <router-link to="/parent" active-class="active">
             <div class="menu-item">
               <img :src="parentIcon" alt="Parents">

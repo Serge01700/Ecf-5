@@ -1,38 +1,29 @@
 <template>
-<div class="parent-space">
-    <ChildForm/>
+  <div>
+    <div class="meal-today">
+      <Meal4Parent />
+    </div>
 
-<div class="event">
-    <EventHome />
-</div>
-<div class="presence">
-    <PresenceCalendar />
-</div>
-
-<div class="meal-today">
-    <Meal4Parent />
-</div>
-</div>
-
-
-
-
+    <div class="parent-space">
+      <ChildForm/>
+      <div class="event">
+        <EventHome />
+      </div>
+      <div class="presence">
+        <PresenceCalendar />
+      </div>
+    </div>
+  </div>
 </template>
-
-
 
 <script setup>
 import ChildForm  from '../components/ChildForm.vue';
 import EventHome from '../components/EventHome.vue';
 import PresenceCalendar from '../components/PresenceCalendar.vue';
 import Meal4Parent from '../components/Meal4Parent.vue';
-
 </script>
 
-
-
 <style>
-
 .img-child{
     height: 50px;
     width: 50px;
@@ -46,4 +37,7 @@ import Meal4Parent from '../components/Meal4Parent.vue';
   gap: 1.5rem;
 }
 
+.meal-today {
+    padding: 1rem
+}
 </style>
